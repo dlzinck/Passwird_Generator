@@ -1,7 +1,46 @@
+//Start of Password Generator codeing
+// Assignment Code
+let generateBtn = document.querySelector("#generate");
+
+//Setting charcter length standards and prompts to go with them
+let length = Number(prompt("How many charcters do you want in your password? Choose between 8 and 128"));
+while (isNaN(length) || length < 8 || length > 128) length = Number(prompt("This needs a value between 8 and 128 characters"));
+
+//Setting up rest of prompts
+let confirmNumber = confirm("Will this contain numbers");
+let confirmSpecial = confirm("Will this contain special characters?");
+let confirmLowercase = confirm("Will this contain Lowercase letters?");
+let confirmUppercase = confirm("Will this contain Uppercase letters?");
+
+while (!confirmNumber && !confirmSpecial && !confirmLowercase && !confirmUppercase) {
+  alert("You must choose at least one!")
+  confirmNumber = confirm("Will this contain numbers");
+  confirmSpecial = confirm("Will this contain special characters?");
+  confirmLowercase = confirm("Will this contain Lowercase letters?");
+  confirmUppercase = confirm("Will this contain Uppercase letters?");
+}
+
+generateBtn.addEventListener("click", function () {
+  generatePassword();
+});
+
+// Write password to the #password input
+function generatePassword() {
+  let password = "";
+  let passwordText = document.querySelector("#password");
+  let characters = {}
+  if (confirmNumber) password += passwordText(characters.confirmNumber = "1", "2", "3", "4", "5", "6", "7", "8", "9");
+  if (confirmSpecial) password += passwordText(characters.confirmSpecial = "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "=", "+", "<", ">", "?", "|", ".", ",", "/", ":", ";", "~", "`", "{", "}");
+  if (confirmLowercase) password += passwordText(characters.confirmLowercase = "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z");
+  if (confirmUppercase) password += passwordText(characters.confirmUppercase = "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z");
+
+  for (let i = password.length; i < length; i++) password += passwordText(passwordText(characters).value);
 
 
+  document.getElementById("#password").value = passwordText(password).join("")
+}
 
-
+generatePassword;
 
 // let enter;
 // let confirmNumber;
