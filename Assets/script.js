@@ -3,10 +3,8 @@ let confirmNumber;
 let confirmCharacter;
 let confirmUppercase;
 let confirmLowercase;
-let password = generatePassword();
-let passwordText = document.querySelector("#password");
+let generateBtn = document.querySelector("#generate");
 let pickChoices;
-
 
 //Password variable values Special, Numerical, Alphabetical characters, and a space
 special = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "=", "+", "<", ">", "?", "|", ".", ",", "/", ":", ";", "~", "`", "{", "}"];
@@ -17,9 +15,9 @@ space = [];
 let choices;
 
 //Allows uppercase change
-let upperCase = function (x) {
+function upperCase(x) {
   return x.toUpperCase();
-};
+}
 
 //Variable for uppercase change
 letterUpper = letter.map(upperCase);
@@ -103,7 +101,7 @@ function generatePassword() {
     choices = special.concat(number, letter, letterUpper);
   }
   //Random selection for all charcters
-  for (let w = 0; w < enter w++) {
+  for (let w = 0; w < enter; w++) {
     let pickChoices = choices[Math.floor(Math.random() * choices.length)];
     password.push(pickChoices);
   }
@@ -112,17 +110,9 @@ function generatePassword() {
   UserInput(passwordText);
   return passwordText;
 }
-
-
-//   // Assignment Code
-// let generateBtn = document.querySelector("#generate");
-
-// // Write password to the #password input
-// function writePassword() {
-
-//   passwordText.value = password;
-
-// }
-
-// // Add event listener to generate button
-// generateBtn.addEventListener("click", writePassword);
+//Gives new password
+function writePassword() {
+  let password = generatePassword();
+  let passwordText = document.querySelector("#password");
+  passwordText.value = password;
+}
