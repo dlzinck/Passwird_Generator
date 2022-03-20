@@ -37,17 +37,18 @@ function writePassword() {
     let randomPassword = generatePassword();
     passwordText.value = randomPassword;
   }
-  else (!randompassword); { 
+  else { 
     alert("You must choose at least one of the characters!");
   }
 }
 
 //A function to allow the user's choices to be taken into account
 function UserInput() {
+  userInput = [];
   result = prompt("How many characters between 8 and 128?");
   //If it is not a number between 8 and 128 the alert will trigger
   if(isNaN(result) || result < 8 || result > 128) {
-    alert("Must have 8 to 128 characters!")
+    alert("Must have 8 to 128 characters!");
     return false;
   }
   if (confirm("Will the password contain numbers?")) {
@@ -62,5 +63,6 @@ function UserInput() {
   if (confirm("Will this password contain upper case letters?")) {
     userInput = userInput.concat(upper);
   }
+  console.log(userInput);
   return true;
 }
