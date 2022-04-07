@@ -1,4 +1,4 @@
-// Assignment Code for Random Generator homework
+//Assignment Code for Random Generator homework
 //Golobal variables
 let result = [];
 let userInput = [];
@@ -6,16 +6,16 @@ let userInput = [];
 //Password variable values
 //Numerical characters
 let number = ['0', '1','2', '3', '4', '5', '6', '7', '8','9'];
-//specialChoice characters
+//SpecialChoice characters
 let special = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '-', '+', '=', '{', '[', '}', ']', ';', ':', '"', '<', '>', ',', '.', '|', '`', '~', '/'];
-//lowerChoicecase characters
+//LowerChoicecase characters
 let lower = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-//upperChoicecase characters
+//UpperChoicecase characters
 let upper = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 
-// Assignment Code (given by homework)
+//Assignment Code (given by homework)
 let generateBtn = document.querySelector("#generate");
-// Add event listener to generate button (given by homework)
+//Add event listener to generate button (given by homework)
 generateBtn.addEventListener("click", writePassword);
 
 //This function is used to generate the password and randomize it as well
@@ -62,6 +62,9 @@ function UserInput() {
   }
   if (confirm("Will this password contain upper case letters?")) {
     userInput = userInput.concat(upper);
+  }
+  else {
+    alert("You must choose at least one type of character!")
   }
   console.log(userInput);
   return true;
